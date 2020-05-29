@@ -1,3 +1,7 @@
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,6 +14,10 @@
         <form action="">
             <table border="1" width="250" aling="center">
                 
+                <tr>
+                    <td>ID: </td>
+                    <td><input type="text" name="txtId"</td>
+                </tr>
                 <tr>
                     <td>Nombre: </td>
                     <td><input type="text" name="txtNom"</td>
@@ -41,6 +49,39 @@
                 </tr>
                 
             </table>
+            
         </form>
+        
+        <! guardar datos en BD>
+        
+        <%
+            if(request.getParameter("btnGuardar")!=null)
+            {
+                int ID=Integer.parseInt(request.getParameter("txtId"));
+            String Nom=request.getParameter("txtNom");
+            String Apell=request.getParameter("txtApell");
+            int TD=Integer.parseInt(request.getParameter("txtTD"));    
+            int Doc=Integer.parseInt(request.getParameter("txtDocum"));
+            String Dir=request.getParameter("txtDire");
+            int Tel=Integer.parseInt(request.getParameter("txtTel"));
+            
+            Connection con=null;
+            Statement sta=null;
+            ResultSet rs=null;
+            try{
+            Class.forName("com.mysql.jdbc.Driver");
+            con=DriverManager.getConnection("jdbc:mysql://localhost/so2020?user=jhonny&password=962011");
+            
+            sta=con.createStatement();
+            sta.executeUpdate("insert into empleados values('"+ID+"','"+Nom+"','"+Apell+"','"+TD+"','"+Doc+"','"+Dir+"','"+Tel+"')");
+            request.getRequestDispatcher("Listado.jsp").forward(request, response);
+            }
+            catch(Exception e)
+            {
+                out.print("ERROR: "+e);
+            }
+            }
+            %>
+
     </body>
 </html>
