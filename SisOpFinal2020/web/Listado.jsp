@@ -14,7 +14,8 @@
             
             <tr bgcolor="skyblue">
                 <th colspan="4">Mantenimiento de integrantes</th>
-                <th><img src="iconos/agregar.png" width="60" height="60"</th>
+                <th><a href="registro.jsp">
+                        <img src="iconos/agregar.png" width="60" height="60"></a></th>
             </tr>
             
             <tr bgcolor="skyblue">
