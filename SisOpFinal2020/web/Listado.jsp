@@ -10,7 +10,7 @@
     </head>
     <body>
         <h1 align="center">listado de integrantes</h1>
-        <table border="1" width="600" align="center">
+        <table border="1" width="800" align="center">
             
             <tr bgcolor="skyblue">
                 <th colspan="4">Mantenimiento de integrantes</th>
