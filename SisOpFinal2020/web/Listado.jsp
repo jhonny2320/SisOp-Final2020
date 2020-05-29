@@ -13,13 +13,13 @@
         <table border="1" width="800" align="center">
             
             <tr bgcolor="skyblue">
-                <th colspan="4">Mantenimiento de integrantes</th>
+                <th colspan="5">Mantenimiento de integrantes</th>
                 <th><a href="registro.jsp">
                         <img src="iconos/agregar.png" width="60" height="60"></a></th>
             </tr>
             
             <tr bgcolor="skyblue">
-                <th>Nombre</th><th>Apellido</th>
+                <th>ID</th><th>Nombre</th><th>Apellido</th>
                 <th>Tipo de Documento</th><th>Documento</th>
                 <th>Accion</th>
                 
@@ -42,13 +42,16 @@
                     {
                             %>
                             <tr>
+                                <th><%=rs.getString(1)%></th>
                                 <th><%=rs.getString(2)%></th>
                                 <th><%=rs.getString(3)%></th>
                                 <th><%=rs.getString(4)%></th>
                                 <th><%=rs.getString(5)%></th>
                                 <th>
                                     <img src="iconos/editar.png" width="30" height="30"> ||
+                                    <a href="eliminar.jsp?ID=<%=rs.getString(1)%>">
                                     <img src="iconos/eliminar1.png" width="30" height="30">
+                                    </a>
                                 </th>
                                 
                             </tr>
