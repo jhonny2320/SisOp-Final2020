@@ -51,7 +51,7 @@
                                 <th><%=rs.getString(6)%></th>
                                 <th><%=rs.getString(7)%></th>
                                 <th>
-                                    <a href="editar.jsp?ID=<%=rs.getString(1)%>">
+                                    <a href="editar.jsp?Iden=<%=rs.getString(1)%>">
                                     <img src="iconos/editar.png" width="30" height="30"> ||
                                     </a>
                                     
@@ -72,5 +72,6 @@
                     out.println("error: "+e);
                 }
             %>
+        </table>
     </body>
 </html>

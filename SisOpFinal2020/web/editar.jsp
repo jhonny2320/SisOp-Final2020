@@ -11,7 +11,7 @@
         <h2 align="center">EDITAR DATOS DEL INTEGRANTE</h2>
         <form action="">
             <%
-                int ID=Integer.parseInt(request.getParameter("ID"));
+                int id=Integer.parseInt(request.getParameter("Iden"));
                 
                 
                     Connection con=null;
@@ -24,12 +24,11 @@
                 ("jdbc:mysql://localhost/so2020?user=jhonny&password=962011");
                     
                     sta=con.createStatement(); 
-                    rs=sta.executeQuery("SELECT * FROM empleados where emp_id='"+ID+"'");
+                    rs=sta.executeQuery("SELECT * FROM empleados where emp_id="+id+"");
                     
-                    while(rs.next()){
-              
-                    
+                    while(rs.next()){                                
                 %>
+        
             <table border="1" width="250" aling="center">
                 
                 <tr>
@@ -63,7 +62,7 @@
                 <tr>
                     
                     <th colspan="2">
-                        <input type="submit" name="btnGuardar" value="Editar Integrante"></th>
+                        <input type="submit" name="btnGrabar" value="Editar Integrante"></td>
                 </tr>
                 
             </table>
@@ -72,6 +71,26 @@
                     <%
                         }
                 }catch(Exception e){}
-            %>
+
+
+        if(request.getParameter("btnGrabar")!=null)
+        {
+            int ID=Integer.parseInt(request.getParameter("txtId"));
+            String Nom=request.getParameter("txtNom");
+            String Apell=request.getParameter("txtApell");
+            int TD=Integer.parseInt(request.getParameter("txtTD"));    
+            int Doc=Integer.parseInt(request.getParameter("txtDocum"));
+            String Dir=request.getParameter("txtDire");
+            int Tel=Integer.parseInt(request.getParameter("txtTel"));
+            
+            sta.executeUpdate("update empleados set emp_nombre='"+Nom
+                                +"',emp_apellido='"+Apell+"',emp_idtipodocumento='"+TD
+                                +"',emp_documento='"+Doc+"',emp_direccion='"+Dir
+                                +"',emp_telefono='"+Tel+"' where emp_id='"+ID+"'");
+            
+            request.getRequestDispatcher("Listado.jsp").forward(request, response);
+}
+                    %>                           
     </body>
+    
 </html>
