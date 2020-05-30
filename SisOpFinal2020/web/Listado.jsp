@@ -10,10 +10,10 @@
     </head>
     <body>
         <h1 align="center">listado de integrantes</h1>
-        <table border="1" width="800" align="center">
+        <table border="1" width="1000" align="center">
             
             <tr bgcolor="skyblue">
-                <th colspan="5">Mantenimiento de integrantes</th>
+                <th colspan="7">Mantenimiento de integrantes</th>
                 <th><a href="registro.jsp">
                         <img src="iconos/agregar.png" width="60" height="60"></a></th>
             </tr>
@@ -21,6 +21,7 @@
             <tr bgcolor="skyblue">
                 <th>ID</th><th>Nombre</th><th>Apellido</th>
                 <th>Tipo de Documento</th><th>Documento</th>
+                <th>Direccion</th><th>Telefono</th>
                 <th>Accion</th>
                 
                 
@@ -47,8 +48,13 @@
                                 <th><%=rs.getString(3)%></th>
                                 <th><%=rs.getString(4)%></th>
                                 <th><%=rs.getString(5)%></th>
+                                <th><%=rs.getString(6)%></th>
+                                <th><%=rs.getString(7)%></th>
                                 <th>
+                                    <a href="editar.jsp?ID=<%=rs.getString(1)%>">
                                     <img src="iconos/editar.png" width="30" height="30"> ||
+                                    </a>
+                                    
                                     <a href="eliminar.jsp?ID=<%=rs.getString(1)%>">
                                     <img src="iconos/eliminar1.png" width="30" height="30">
                                     </a>
